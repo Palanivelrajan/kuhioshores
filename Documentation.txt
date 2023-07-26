@@ -1,0 +1,29 @@
+1. themes/fullsearchpage.php
+-----------------------------
+Custom template for booking page.
+$arr_acc1 array holds the entire condos list from Database(from 101 to 418), which also include meta values.
+Array $b1 to $b19 holds condos in block wise. For example $b1 holds 01 series(101,201,301,401)
+Array $bsoutheast holds 408 condo and $bsouthwest has 407.
+All the blockwise blockwise condo array also includes the meta values.
+
+DIV with class name "<div = class'main-frame'>" loads the sitemap view on booking page for initial loading, later it is hidden after search and show sitemap from booking-step2-main.htm.php under Plugins/sohohotel-booking/includes/templates.
+
+Required css are in this template file.
+
+2. Plugins/sohohotel-booking/includes/templates/booking-step2-main.htm.php
+-----------------------------------------------------------------------------
+1. Here, $arr22 array holds all the available and participating condos which matches the search criteria. The participating condos has been decided by custom meta field (participate_condo_in_the_website) which has added below title under Accommodation/Condo no. There is checkbox which decides whether the condo has participate in the website or not.
+2. The block wise condos holds by $b1 to $b19 array and $bsoutheast array and $bsouthwest holds corner condos like above template.
+3. Div "loadedblocks-xs" is only mobile view.
+4. Dive "loadedblocks" holds the sitemap results after search which will override the Div "main-fram" from fullsearchpage template.
+
+
+3. Plugins/sohohotel-booking/includes/shortcodes/accommodation-page.php
+------------------------------------------------------------------------
+Exactly similar to themes/fullsearchpage.php.
+
+1. $arr_acc1 array holds the entire condos list from Database(from 101 to 418), which also include meta values.
+2. Array $b1 to $b19 holds condos in block wise. For example $b1 holds 01 series(101,201,301,401)
+3. Array $bsoutheast holds 408 condo and $bsouthwest has 407.
+4. All the blockwise blockwise condo array also includes the meta values.
+5. Here, the only participating condos will be green color others has grayed out.
